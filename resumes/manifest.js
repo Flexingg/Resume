@@ -3,6 +3,7 @@ window.RESUME_MANIFEST = {
   default: "base",
   resumes: [
     "base",
-    "kimberly-clark"
+    "kimberly-clark",
+    "bridgestone-aiken-psr"
   ]
 };
