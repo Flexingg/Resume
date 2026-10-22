@@ -23,11 +23,7 @@ defineResume("base", {
   "contact": {
     "location": "Augusta, GA",
     "phone": "1.864.323.7353",
-    "email": "j03randall@gmail.com",
-    "website": {
-      "label": "resume.randall.engineering/jonathanrandall/mechanical",
-      "url": "https://resume.randall.engineering/jonathanrandall/mechanical"
-    }
+    "email": "j03randall@gmail.com"
   },
   "summary": "Results-driven Senior Mechanical Engineer with experience in 24/7 industrial manufacturing and nuclear facilities. Committed to doing the job right the first time—prioritizing rigorous root-cause solutions and permanent reliability over quick fixes, even when the execution is more demanding. Combines mechanical engineering principles, machine design, and project management expertise with modern programming capabilities to drive safety, operational excellence, and cost reduction initiatives. Proven track record of successful project delivery in high-stakes manufacturing environments.",
   "experience": [
