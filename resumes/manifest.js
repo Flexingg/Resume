@@ -4,6 +4,7 @@ window.RESUME_MANIFEST = {
   resumes: [
     "base",
     "kimberly-clark",
-    "bridgestone-aiken-psr"
+    "bridgestone-aiken-psr",
+    "bae-systems-aiken"
   ]
 };
