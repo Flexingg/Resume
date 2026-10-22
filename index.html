@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="themes.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- App chrome: never printed -->
+  <header class="toolbar no-print">
+    <div class="tb-inner">
+      <div class="tb-group">
+        <label class="tb-field editor-only"><span>Resume</span><select id="variantSelect"></select></label>
+        <label class="tb-field editor-only"><span>Theme</span><select id="themeSelect"></select></label>
+        <span id="fitStatus" class="fit-badge editor-only"></span>
+      </div>
+      <div class="tb-group">
+        <button id="editBtn" class="btn editor-only" type="button">Edit data</button>
+        <button id="aiBtn" class="btn editor-only" type="button">Tailor with AI</button>
+        <a id="pdfLink" class="btn" hidden download>Download PDF</a>
+        <button id="printBtn" class="btn btn-primary" type="button">Print / Save PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- The page itself -->
+  <main class="preview">
+    <div class="sheet-wrap" id="sheetWrap">
+      <article class="sheet" id="sheet"></article>
+    </div>
+  </main>
+
+  <!-- JSON editor drawer -->
+  <aside id="editor" class="drawer no-print" hidden>
+    <div class="drawer-head">
+      <strong>Editing <code id="editorId"></code></strong>
+      <span id="draftBadge" class="badge" hidden>Draft</span>
+      <button class="icon-btn" type="button" data-close="editor" aria-label="Close">✕</button>
+    </div>
+    <p class="hint">Edits preview live and are kept in this browser as a draft. <b>Download .js</b> and commit it to <code>resumes/</code> to make it permanent.</p>
+    <textarea id="editorText" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+    <div id="editorError" class="error" hidden></div>
+    <div class="drawer-actions">
+      <button id="downloadBtn" class="btn btn-primary" type="button">Download .js</button>
+      <button id="newVariantBtn" class="btn" type="button">New variant from this</button>
+      <button id="resetBtn" class="btn btn-danger" type="button">Discard draft</button>
+    </div>
+  </aside>
+
+  <!-- AI tailoring modal -->
+  <div id="aiModal" class="modal no-print" hidden>
+    <div class="modal-card">
+      <div class="drawer-head">
+        <strong>Tailor with AI</strong>
+        <button class="icon-btn" type="button" data-close="aiModal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="step"><b>1.</b> Paste the job posting, then copy the prompt into Claude (or any AI).</p>
+        <input id="aiCompany" class="input" placeholder="Company name (e.g. Kimberly-Clark)" />
+        <textarea id="aiJob" class="input" rows="5" placeholder="Paste the job description here"></textarea>
+        <button id="aiCopyBtn" class="btn btn-primary" type="button">Copy prompt</button>
+        <textarea id="aiPrompt" class="input mono" rows="3" readonly hidden></textarea>
+
+        <p class="step"><b>2.</b> Paste the AI's reply (the whole thing is fine) and import it as a new variant.</p>
+        <textarea id="aiOutput" class="input mono" rows="5" placeholder='defineResume("acme", { "extends": "base", ... });'></textarea>
+        <div id="aiError" class="error" hidden></div>
+        <button id="aiImportBtn" class="btn btn-primary" type="button">Import as variant</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast no-print" hidden></div>
+</body>
+</html>
